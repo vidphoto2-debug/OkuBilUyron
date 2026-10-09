@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Окуу — Бил — Үйрөн</title>
+</head>
+<body>
+  <h2>Окуу — Бил — Үйрөн</h2>
+
+  <label for="phone">Телефон номериңиз:</label>
+  <input id="phone" type="tel" placeholder="+996700123456">
+
+  <div id="recaptcha-container"></div>
+
+  <button id="send-code">SMS-код алуу</button>
+
+  <p id="message"></p>
+
+  <hr>
+
+  <label for="code">SMS-кодду жазыңыз:</label>
+  <input id="code" type="text" inputmode="numeric"
+         placeholder="SMS-код">
+
+  <button id="verify-code">Кодду текшерүү</button>
+
+  <script type="module">
+    import { initializeApp } from
+      "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+    import {
+      getAuth,
+      RecaptchaVerifier,
+      signInWithPhoneNumber
+    } from
+      "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      // Бул жерге Firebase'деги веб-колдонмонун
+      // конфигурациясын кийинки кадамда кошобуз.
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("message").textContent =
+      "Firebase жөндөөлөрүн кошуу керек.";
+  </script>
+</body>
+</html>
